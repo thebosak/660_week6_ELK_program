@@ -14,15 +14,16 @@ test_logger.setLevel(logging.INFO)
 test_logger.addHandler(logstash.LogstashHandler('18.208.203.182',5959,version=1))
 
 for x in range(50):
-  if x % 4:
-    print("info")
-    test_logger.info('python-logstash: This is an info message.')
-  elif x % 5:
-    print("warning")
-    test_logger.warning('python-logstash: This is an warning message.')
-  else:
-    print("error")
-    test_logger.error('python-logstash: Uh oh, this is an error.')
+    y = random.randrange(101)
+    if y % 4:
+        print("info")
+        test_logger.info('python-logstash: This is an info message.')
+    elif y % 5:
+        print("warning")
+        test_logger.warning('python-logstash: This is an warning message.')
+    else:
+        print("error")
+        test_logger.error('python-logstash: Uh oh, this is an error.')
 
 extra = {
     'test_string': 'python-version: ' + repr(sys.version_info),
